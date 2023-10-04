@@ -1,3 +1,10 @@
 from django.db import models
 
-# Create your models here.
+NULLABLE = {
+    'null': True,
+    'blank': True
+}
+
+
+class Habit(models.Model):
+    pass
