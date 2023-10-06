@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 NULLABLE = {
     'null': True,
@@ -16,6 +17,8 @@ class Habit(models.Model):
     award = models.CharField(max_length=100, verbose_name='награда', **NULLABLE)
     limit_time = models.SmallIntegerField(verbose_name='продолжительность')
     public = models.BooleanField(default=False, verbose_name='признак публичность')
+
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, verbose_name='пользователь', **NULLABLE)
 
     class Meta:
         verbose_name = 'привычка'
