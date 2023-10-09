@@ -1,0 +1,44 @@
+[
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$7UuAjoAeBj0K95MpVTw3Lz$prGMEsVvdXLAFrsFLpyM/aZ29dCNjBo1ytxM5KYzHHs=",
+      "last_login": null,
+      "is_superuser": true,
+      "first_name": "Admin",
+      "last_name": "SkyPro",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-10-04T23:16:58.082Z",
+      "email": "admin@sky.pro",
+      "telegram": "",
+      "chat_id": 0,
+      "update_id": 0,
+      "name": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$WDQDYw1QEeViyjpPAyhDDZ$owtlSV3QlXl9tVegkgC0K/+NySBjxmVAvOFystALj4w=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-05T14:36:16.204Z",
+      "email": "problemaprod@yandex.ru",
+      "telegram": "problemaprod",
+      "chat_id": 361467867,
+      "update_id": 272625774,
+      "name": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
