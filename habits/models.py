@@ -19,7 +19,7 @@ class Habit(models.Model):
     public = models.BooleanField(default=False, verbose_name='признак публичность')
 
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, verbose_name='пользователь',
-                              **NULLABLE)w
+                              **NULLABLE)
 
     class Meta:
         verbose_name = 'привычка'

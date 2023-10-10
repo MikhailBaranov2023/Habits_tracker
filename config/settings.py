@@ -88,9 +88,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'habits_tracker',
+        'NAME': os.getenv('DATABASES_NAME'),
         'USER': 'postgres',
-        "PASSWORD": '12345'
+        "PASSWORD": os.getenv('DATABASES_PASSWORD')
     }
 }
 
@@ -163,7 +163,7 @@ CELERY_RESULT_BACKEND = 'redis://localhost:6379'
 
 CELERY_TASK_TRACK_STARTED = True
 
-TG_TOKEN = '6687184129:AAH8jQRzE5a2VmGFFFRQVip5SHHFqtVKVyI'
+TG_TOKEN = os.getenv('TG_TOKEN')
 
 CELERY_BEAT_SCHEDULE = {
     """sending message """
