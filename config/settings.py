@@ -91,8 +91,9 @@ DATABASES = {
         # 'NAME': os.getenv('DATABASES_NAME'),
         'NAME': 'postgres',
         'HOST': 'db',
+        'PORT': 5432,
         # 'USER': os.getenv('DB_USER'),
-        'USER': 'habits_tracker',
+        'USER': 'postgres',
         'PASSWORD': 'habits_tracker'
         # 'PASSWORD': os.getenv('DATABASES_PASSWORD')
     }
@@ -162,8 +163,8 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 CORS_ALLOW_ALL_ORIGINS = False
 
-CELERY_BROKER_URL = 'redis://localhost:6379'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_BROKER_URL = 'redis://redis:6379'
+CELERY_RESULT_BACKEND = 'redis://redis:6379'
 
 CELERY_TASK_TRACK_STARTED = True
 
@@ -176,4 +177,3 @@ CELERY_BEAT_SCHEDULE = {
         'schedule': timedelta(minutes=10),
     },
 }
-

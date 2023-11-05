@@ -12,7 +12,6 @@ services:
     env_file:
       - .env
     environment:
-      POSTGRES_USER: habits_tracker
       POSTGRES_PASSWORD: habits_tracker
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
