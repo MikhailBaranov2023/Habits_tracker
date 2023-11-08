@@ -13,7 +13,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 from datetime import timedelta
-from celery.schedules import crontab
+import redis
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-c!se3^@#xl=7ak=jo#5vj@(6(i_nipj9&ez-+hle_la1_n5@ss
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -88,9 +88,14 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DATABASES_NAME'),
+        # 'NAME': os.getenv('DATABASES_NAME'),
+        'NAME': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
+        # 'USER': os.getenv('DB_USER'),
         'USER': 'postgres',
-        "PASSWORD": os.getenv('DATABASES_PASSWORD')
+        'PASSWORD': 'habits_tracker'
+        # 'PASSWORD': os.getenv('DATABASES_PASSWORD')
     }
 }
 
@@ -115,7 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 
@@ -158,8 +163,8 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 CORS_ALLOW_ALL_ORIGINS = False
 
-CELERY_BROKER_URL = 'redis://localhost:6379'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_BROKER_URL = 'redis://redis:6379'
+CELERY_RESULT_BACKEND = 'redis://redis:6379'
 
 CELERY_TASK_TRACK_STARTED = True
 
@@ -169,6 +174,6 @@ CELERY_BEAT_SCHEDULE = {
     """sending message """
     'send_message': {
         'task': 'habits.tasks.get_message_data',
-        'schedule': crontab(minute=0, hour=10),
+        'schedule': timedelta(minutes=10),
     },
 }
